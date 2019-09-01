@@ -170,6 +170,7 @@ function XChat:Init()
 end
 
 function XChat:SendMessage(...)
+	if LocalPlayer():GetNWBool("xsys_gagged") then return end
 	local data 	= util.Compress(...)
 	local len 	= string.len(data or "")
 	local ok 	= pcall(function()
