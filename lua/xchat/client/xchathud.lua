@@ -52,6 +52,7 @@ for k,v in pairs(XChatHUD.ChatHUD.Fonts) do
 end
 
 XChatHUD.Visible          = CreateClientConVar("xchathud_show"       ,"1"   ,true,false)
+XChatHUD.TimeStamps       = CreateClientConVar("xchathud_timestamps" ,"1"   ,true,false)
 XChatHUD.HeightMultiplier = CreateClientConVar("xchathud_height_mult","0.76",true,false)
 XChatHUD.WidthMultiplier  = CreateClientConVar("xchathud_width_mult" ,"0.3" ,true,false)
 
@@ -139,8 +140,8 @@ function XChatHUD.Draw()
 	local w,h = ScrW(),ScrH()
 	local x,y = 30,h*XChatHUD.HeightMultiplier:GetFloat()
 	
-	if pace and pace.IsActive() and pace.Editor:Visible() then
-		pacoff = pace.Editot():GetWide()+30
+	if pace and pace.IsActive() and pace.Editor:IsActive() then
+		pacoff = pace.Editor:GetWide()+30
 		x = pacoff
 	else
 		x = 30
@@ -187,11 +188,16 @@ hook.Add("OnPlayerChat","XChatHUD",function(ply)
 	end)
 end)
 --[[
-hook.Add("ChatText","XChatHUD",function(_,_,msg)
+hook.Remove("ChatText","XChatHUD",function(_,_,msg)
+	local datetxt = "["..os.date("%I:%M:%S %p",os.time()).."] "
+	local showdate = XChatHUD.TimeStamps:GetBool()
+	
+	print("aaa?",tostring(showdate and datetxt..msg or msg))
+	
 	XChatHUD.AddText({
 		type = "font",
 		val  = XChatHUD.ChatHUD.Fonts.ChatPrint.Name
-	},XChatHUD.ChatHUD.Fonts.ChatPrint.Color,tostring(msg))
+	},XChatHUD.ChatHUD.Fonts.ChatPrint.Color,tostring(showdate and datetxt..msg or msg))
 end)
 ]]
 hook.Add("HUDShouldDraw","XChatHUD",function(name)
