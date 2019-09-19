@@ -1218,7 +1218,7 @@ do
 		
 		table.insert(temp,1,{
 			type     = "font",
-			val      = self.default_font.name,
+			val      = self.DefaultFont.Name,
 			internal = true
 		})
 		
@@ -1477,7 +1477,7 @@ do
 		local height = 0
 		local last_y
 
-		local font  = self.default_font.name
+		local font  = self.DefaultFont.Name
 		local color = Color(1,1,1,1)
 
 		local function build_chars(chunk)
@@ -2786,7 +2786,7 @@ do
 			self.caret_later_pos = nil
 		end
 		
-		EXT.SetFont(self.default_font.name)
+		EXT.SetFont(self.DefaultFont.Name)
 		EXT.SetColor(1,1,1,1)
 
 		local remove_these = {}
