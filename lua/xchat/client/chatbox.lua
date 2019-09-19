@@ -229,7 +229,11 @@ function chat.AddText(...)
 	end
 
 	chat.PlaySound()
-	XChat.chat_AddText(...)
+	if XChatHUD and XChatHUD.AddText then
+		XChatHUD.AddText(...)
+	else
+		XChat.chat_AddText(...)
+	end
 end
 
 hook.Add("PlayerBindPress",tag,function(ply,bind,pressed)
