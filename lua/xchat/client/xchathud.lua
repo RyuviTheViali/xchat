@@ -186,14 +186,14 @@ hook.Add("OnPlayerChat","XChatHUD",function(ply)
 		XChatHUD.CurrentPlayer = NULL
 	end)
 end)
-
+--[[
 hook.Add("ChatText","XChatHUD",function(_,_,msg)
 	XChatHUD.AddText({
 		type = "font",
 		val  = XChatHUD.ChatHUD.Fonts.ChatPrint.Name
 	},XChatHUD.ChatHUD.Fonts.ChatPrint.Color,tostring(msg))
 end)
-
+]]
 hook.Add("HUDShouldDraw","XChatHUD",function(name)
 	if name == "CHudChat" and XChatHUD.Visible:GetBool() then
 		return false

@@ -214,8 +214,17 @@ XChat.chat_AddText = XChat.chat_AddText or chat.AddText
 function chat.AddText(...)
 	if not sanityCheck() then return XChat.chat_AddText(...) end
 	XChat.chatbox.chatlog:AppendText("\n")
-	local args = {...}
-	for _,obj in next,args do
+	
+	local datetxt = "["..os.date("%H:%M:%S",os.time()).."] "
+	local datecol = Color(128,190,240)
+	local showdate = XChatHUD.TimeStamps:GetBool()
+	local msg = {...}
+	
+	if showdate then
+		table.insert(msg,1,datetxt)
+		table.insert(msg,1,datecol)
+	end
+	for _,obj in next,msg do
 		local type = type(obj)
 		if type == "table" then
 			XChat.chatbox.chatlog:InsertColorChange(obj.r,obj.g,obj.b,255)
@@ -229,10 +238,11 @@ function chat.AddText(...)
 	end
 
 	chat.PlaySound()
+	
 	if XChatHUD and XChatHUD.AddText then
-		XChatHUD.AddText(...)
+		XChatHUD.AddText(unpack(msg))
 	else
-		XChat.chat_AddText(...)
+		XChat.chat_AddText(unpack(msg))
 	end
 end
 
@@ -243,11 +253,11 @@ hook.Add("PlayerBindPress",tag,function(ply,bind,pressed)
 	end
 end)
 
---[[hook.Add("HUDShouldDraw", tag, function(name) -- Remove comments if you want to work on a chathud. 
+hook.Add("HUDShouldDraw",tag,function(name)
 	if name == "CHudChat" then
 		return false
 	end
-end)]]
+end)
 
 hook.Add("PreRender",tag,function()
 	if (XChat.chatbox and IsValid(XChat.chatbox.outerframe) and XChat.chatbox.outerframe:IsVisible()) and gui.IsGameUIVisible() then
@@ -260,16 +270,11 @@ hook.Add("PreRender",tag,function()
 	end
 end)
 
-hook.Add("ChatText", tag, function(_,_,text,type)
-	if type == "none" or type == "servermsg" then
-		if not IsValid(XChat.chatbox.chatlog) then
-			Msg("[XChat] ")
-			print("Attempting to send message before chatlog creation! ("..text..")")
-			return
-		end
-		XChat.chatbox.chatlog:AppendText("\n")
-		XChat.chatbox.chatlog:InsertColorChange(255,255,255,255)
-		XChat.chatbox.chatlog:AppendText(text)
+hook.Add("OnPlayerChat",tag,function(ply,msg,isteam,isdead)
+	if not IsValid(XChat.chatbox.chatlog) then
+		Msg("[XChat] ")
+		print("Attempting to send message before chatlog creation! ("..msg..")")
+		return
 	end
 end)
 
