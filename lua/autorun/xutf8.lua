@@ -4,7 +4,7 @@ local string_gmatch = string.gmatch
 local string_gsub   = string.gsub
 local string_sub    = string.sub
 
-utf8 = {}
+utf8 = utf8 or {}
 
 function utf8.byte(char, offset)
 	if char == "" then return -1 end
