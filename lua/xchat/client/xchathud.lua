@@ -131,7 +131,6 @@ function XChatHUD.AddText(...)
 end
 
 local pacoff = 30
-
 function XChatHUD.Draw()
 	if not XChatHUD.Visible:GetBool() then return end
 	

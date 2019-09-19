@@ -224,6 +224,7 @@ function chat.AddText(...)
 		table.insert(msg,1,datetxt)
 		table.insert(msg,1,datecol)
 	end
+	
 	for _,obj in next,msg do
 		local type = type(obj)
 		if type == "table" then
