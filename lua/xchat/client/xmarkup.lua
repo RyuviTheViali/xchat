@@ -639,11 +639,13 @@ do
 			arguments = {1,nil},
 			init = function() end,
 			pre_draw = function(markup,self,x,y,scaleX,scaleY)
-				EXT.CreateMatrix()
+				--EXT.CreateMatrix()
 				
 				if scaleY == nil then scaleY = scaleX end
+
+				CHATHUD_TAGS.matrix.pre_draw(markup,self,x,y,0,0,0,0,scaleX,scaleY)
 				
-				self.matrixDeterminant = scaleX*scaleY
+				--[[self.matrixDeterminant = scaleX*scaleY
 
 				if math.abs(self.matrixDeterminant) > 1 then
 					scaleX,scaleY = scaleV2(scaleX,scaleY,1/math.sqrt(self.matrixDeterminant))
@@ -659,7 +661,7 @@ do
 					end
 				EXT.TranslateMatrix(-x,-centerY)
 				EXT.PushMatrix()
-				EXT.SetCullClockWise(self.matrixDeterminant < 0)
+				EXT.SetCullClockWise(self.matrixDeterminant < 0)]]
 			end,
 			post_draw = function(markup,self)
 				if self.matrixDeterminant < 0 then
