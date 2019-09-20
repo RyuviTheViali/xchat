@@ -241,9 +241,9 @@ function chat.AddText(...)
 	chat.PlaySound()
 	
 	if XChatHUD and XChatHUD.AddText then
-		XChatHUD.AddText(unpack(msg))
+		XChatHUD.AddText(...)
 	else
-		XChat.chat_AddText(unpack(msg))
+		XChat.chat_AddText(...)
 	end
 end
 

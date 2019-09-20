@@ -398,8 +398,8 @@ do
 	META.DefaultFont = {
 		Name = "markup_default",
 		Data = {
-			font       = "Verdana",
-			size       = 16,
+			font       = "Tahoma",
+			size       = 18,
 			weight     = 600,
 			antialias  = true,
 			shadow     = true,

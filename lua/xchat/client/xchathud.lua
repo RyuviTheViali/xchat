@@ -22,13 +22,12 @@ XChatHUD.ChatHUD = {
 			Name = "chathud_default",
 			Data = {
 				font       = "Tahoma",
-				size       = 20,
+				size       = 18,
 				weight     = 600,
 				antialias  = true,
-				shadow     = false,
+				shadow     = true,
 				outline    = false,
-				prettyblur = 1,
-				passes     = 4
+				prettyblur = 1
 			} 
 		},
 		ChatPrint = {
@@ -39,10 +38,9 @@ XChatHUD.ChatHUD = {
 				size       = 24,
 				weight     = 600,
 				antialias  = true,
-				shadow     = false,
+				shadow     = true,
 				outline    = false,
-				prettyblur = 1,
-				passes     = 4
+				prettyblur = 1
 			}
 		}
 	},
