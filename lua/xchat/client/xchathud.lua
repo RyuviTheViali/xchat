@@ -25,7 +25,7 @@ XChatHUD.ChatHUD = {
 				size       = 36,
 				weight     = 600,
 				antialias  = true,
-				shadow     = false,
+				shadow     = true,
 				outline    = true,
 				prettyblur = 1
 			} 
@@ -35,10 +35,10 @@ XChatHUD.ChatHUD = {
 			Color = Color(168,127,255,255),
 			Data  = {
 				font       = "Tahoma",
-				size       = 16,
+				size       = 24,
 				weight     = 600,
 				antialias  = true,
-				shadow     = false,
+				shadow     = true,
 				outline    = true,
 				prettyblur = 1
 			}
