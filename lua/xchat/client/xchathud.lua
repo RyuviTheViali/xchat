@@ -219,6 +219,10 @@ hook.Add("HUDPaint","chathud",function()
 	XChatHUD.Draw()
 end)
 
+XChatHUD.Recreate = function()
+	XChatHUDInit()
+end
+
 end
 hook.Add("InitPostEntity","XChatHUDInit",XChatHUDInit)
 
