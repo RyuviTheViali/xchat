@@ -25,8 +25,8 @@ XChatHUD.ChatHUD = {
 				size       = 20,
 				weight     = 600,
 				antialias  = true,
-				shadow     = true,
-				outline    = true,
+				shadow     = false,
+				outline    = false,
 				prettyblur = 1,
 				passes     = 4
 			} 
@@ -39,8 +39,8 @@ XChatHUD.ChatHUD = {
 				size       = 24,
 				weight     = 600,
 				antialias  = true,
-				shadow     = true,
-				outline    = true,
+				shadow     = false,
+				outline    = false,
 				prettyblur = 1,
 				passes     = 4
 			}
