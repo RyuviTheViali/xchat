@@ -1,3 +1,5 @@
+local function XChatHUDInit()
+
 XChatHUD = XChatHUD or {}
 
 XChatHUD.ChatHUD = {
@@ -214,3 +216,10 @@ hook.Add("HUDPaint","chathud",function()
 	
 	XChatHUD.Draw()
 end)
+
+end
+hook.Add("InitPostEntity","XChatHUDInit",XChatHUDInit)
+
+if LocalPlayer and LocalPlayer():IsValid() then
+	XChatHUDInit()
+end
