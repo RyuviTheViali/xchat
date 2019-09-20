@@ -22,12 +22,13 @@ XChatHUD.ChatHUD = {
 			Name = "chathud_default",
 			Data = {
 				font       = "Tahoma",
-				size       = 36,
+				size       = 20,
 				weight     = 600,
 				antialias  = true,
 				shadow     = true,
 				outline    = true,
-				prettyblur = 1
+				prettyblur = 1,
+				passes     = 4
 			} 
 		},
 		ChatPrint = {
@@ -40,7 +41,8 @@ XChatHUD.ChatHUD = {
 				antialias  = true,
 				shadow     = true,
 				outline    = true,
-				prettyblur = 1
+				prettyblur = 1,
+				passes     = 4
 			}
 		}
 	},
@@ -122,7 +124,7 @@ function XChatHUD.AddText(...)
 	local m = XChatHUD.XMarkup
 	
 	m:BeginLifeTime(XChatHUD.LifeTime)
-		m:AddFont("markup_default")
+		m:AddFont("chathud_default")
 		m:AddTable(args,true)
 		m:AddTagStopper()
 		m:AddString("\n")
