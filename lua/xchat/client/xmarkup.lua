@@ -791,6 +791,19 @@ do
 				EXT.PopMatrix()
 			end
 		}
+
+		CHATHUD_TAGS.i = {
+			arguments = {},
+			init = function() end,
+			pre_draw = function(markup,self,x,y)
+				CHATHUD_TAGS.translate.pre_draw(markup,self,x,y,-3,0)
+				CHATHUD_TAGS.matrix   .pre_draw(markup,self,x,y,1,0,0.5,1,0,0)
+			end,
+			post_draw = function(markup,self)
+				CHATHUD_TAGS.translate.post_draw(markup,self)
+				CHATHUD_TAGS.matrix   .post_draw(markup,self)
+			end
+		}
 	end
 end
 
