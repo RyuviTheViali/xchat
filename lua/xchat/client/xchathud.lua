@@ -26,6 +26,7 @@ XChatHUD.ChatHUD = {
 				weight     = 600,
 				antialias  = true,
 				shadow     = false,
+				outline    = true,
 				prettyblur = 1
 			} 
 		},
@@ -38,6 +39,7 @@ XChatHUD.ChatHUD = {
 				weight     = 600,
 				antialias  = true,
 				shadow     = false,
+				outline    = true,
 				prettyblur = 1
 			}
 		}
