@@ -35,7 +35,7 @@ end
 
 local function parse_hexcolor(col)
 	if not col then
-		return nil
+		return "ff00ff"
 	end
 
 	col = col:upper()
