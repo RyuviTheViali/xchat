@@ -34,6 +34,10 @@ local function get_set(tbl,name,def)
 end
 
 local function parse_hexcolor(col)
+	if not col then
+		col = "ff00ff"
+	end
+
 	col = col:upper()
 	local l = col:len()
 	
