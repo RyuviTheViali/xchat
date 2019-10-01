@@ -255,6 +255,8 @@ hook.Add("PlayerBindPress",tag,function(ply,bind,pressed)
 end)
 
 hook.Add("HUDShouldDraw",tag,function(name)
+	if XChatHUD then return end
+
 	if name == "CHudChat" then
 		return false
 	end
