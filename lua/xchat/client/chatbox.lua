@@ -254,13 +254,7 @@ hook.Add("PlayerBindPress",tag,function(ply,bind,pressed)
 	end
 end)
 
-hook.Add("HUDShouldDraw",tag,function(name)
-	if XChatHUD then return end
-
-	if name == "CHudChat" then
-		return false
-	end
-end)
+hook.Remove("HUDShouldDraw",tag) -- Handled in XChatHUD
 
 hook.Add("PreRender",tag,function()
 	if (XChat.chatbox and IsValid(XChat.chatbox.outerframe) and XChat.chatbox.outerframe:IsVisible()) and gui.IsGameUIVisible() then
