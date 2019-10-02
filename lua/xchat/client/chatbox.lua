@@ -248,7 +248,7 @@ function chat.AddText(...)
 end
 
 hook.Add("PlayerBindPress",tag,function(ply,bind,pressed)
-	if pressed and bind == "messagemode" then
+	if pressed and bind == "messagemode" or bind == "messagemode2" then
 		XChat:Open()
 		return true
 	end
