@@ -204,10 +204,6 @@ hook.Remove("ChatText","XChatHUD",function(_,_,msg)
 end)
 ]]
 hook.Add("HUDShouldDraw","XChatHUD",function(name)
-	if name == "CHudMenu" then -- Special case so the menu is never hidden
-		return
-	end
-
 	if name == "CHudChat" and XChatHUD.Visible:GetBool() then
 		return false
 	end
