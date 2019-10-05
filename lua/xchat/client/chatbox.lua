@@ -170,8 +170,8 @@ function XChat:Init()
 end
 
 function XChat:SendMessage(...)
-	if LocalPlayer():GetNWBool("xsys_gagged") and not ({...})[1]:sub(2,4) == "pm " then return end
-	if xsys.xban and LocalPlayer():GetNWBool("XsysBanned") and not ({...})[1]:sub(2,4) == "pm " then return end
+	if LocalPlayer():GetNWBool("xsys_gagged") then return end
+	if xsys.xban and LocalPlayer():GetNWBool("XsysBanned") then return end
 	local data 	= util.Compress(...)
 	local len 	= string.len(data or "")
 	local ok 	= pcall(function()
